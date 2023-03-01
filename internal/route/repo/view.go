@@ -61,11 +61,13 @@ func renderDirectory(c *context.Context, treeLink string) {
 	for _, entry := range entries {
 		if entry.IsTree() || !markup.IsReadmeFile(entry.Name()) {
 			continue
+		} else if markup.IsReadmeMarkFile(entry.Name()) {
+			readmeFile = entry.Blob()
+			break
 		}
 
 		// TODO(unknwon): collect all possible README files and show with priority.
 		readmeFile = entry.Blob()
-		break
 	}
 
 	if readmeFile != nil {

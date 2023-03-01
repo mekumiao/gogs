@@ -23,6 +23,10 @@ func IsReadmeFile(name string) bool {
 	return strings.HasPrefix(strings.ToLower(name), "readme")
 }
 
+func IsReadmeMarkFile(name string) bool {
+	return strings.EqualFold(name, "readme.md")
+}
+
 // IsIPythonNotebook reports whether name looks like a IPython notebook based on its extension.
 func IsIPythonNotebook(name string) bool {
 	return strings.HasSuffix(name, ".ipynb")
